@@ -1,0 +1,178 @@
+<!-- ESTRUCTURA PAGINA PRINCIPAL DE LA APLICACION -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--==================== ESTILOS CSS ====================-->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <!--==================== SWIPER CSS ====================-->
+    <title>Home || Sifer - App </title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="container_body"></div>
+    <!--==================== HEADER OF MENU DE NAVEGACION ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+
+            <a href="public/views/authentication/login.php" class="nav_logo">SIFER - APP </a>
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list grid">
+
+                    <li class="nav_item">
+                        <a href="/signin" class="nav_link active-link">
+                            <i class="uil uil-user-circle nav_icon"></i>Iniciar Sesion
+                        </a>
+                    </li>
+                    <!-- <li class="nav_item">
+                        <a href="/signup" class="nav_link active-link">
+                            <i class="uil uil-user-circle nav_icon"></i>Registrarme
+                        </a>
+                    </li> -->
+                </ul>
+                <i class="uil uil-times nav_close" id="nav-close"></i>
+            </div>
+
+        </nav>
+    </header>
+
+    <!--==================== MAIN O CONTAINER OF SECTIONS ====================-->
+
+
+    <!--====================     STRUCTURE SECTION HOME   ====================-->
+
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="home_container container grid">
+                <div class="home_content grid">
+                    <div class="home_social">
+                        <a href="/signin" class="home_social-icon">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="/signup" class="home_social-icon">
+                            <i class="uil uil-registered"></i>
+                        </a>
+                    </div>
+
+                    <div class="home_img">
+                        <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g mask="url(#mask0)">
+                                <image class="home_blob-img" x='12' y='18'
+                                    xlink:href="{% static 'img/main_img.svg'%}" />
+                            </g>
+                        </svg>
+
+                        <div class="home_images">
+                            <svg class="home_blob_tree" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g mask="url(#mask0)">
+                                    <image class="home_blob-img_two" x='12' y='18'
+                                        xlink:href="{% static 'img/phone_mobile.webp'%}" />
+                                </g>
+                            </svg>
+
+                            <svg class="home_blob_two" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g mask="url(#mask0)">
+                                    <image class="home_blob-img_tree" x='12' y='18'
+                                        xlink:href="{% static 'img/phone_mobile.webp'%}" />
+                                </g>
+                            </svg>
+
+                            <svg class="home_blob_two" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g mask="url(#mask0)">
+                                    <image class="home_blob-img_two" x='12' y='18'
+                                        xlink:href="{% static 'img/phone_mobile.webp'%}" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="home_data">
+                        <h1 class="home_title">Bienvenido a Sifer-App </h1>
+                        <h3 class="home_subtitle"><span class="multiple-text"></span><span class="usuario"></h3>
+                        <p class="home_description">"Lo que más quieres en el mundo tiene nombre, placa y cilindraje,
+                            son parte de nuestro día a día, ningún cuidado es suficiente para demostrarle cuánto las
+                            amamos, por eso somos tu mejor eleccion."</p>
+                        <a href="signup/" class=" button_home button button--flex">
+                            ¡Empezar ya!<i class="uil uil-message button_icon"></i>
+                        </a>
+
+
+                    </div>
+
+                    <div class="home_scroll">
+                        <a href="#about" class="home_scroll-button button--flex">
+                            <i class="uil uil-mouse-alt home_scroll-mouse"></i>
+                            <span class="home_scroll-name">Scroll Down</span>
+                            <i class="uil uil-arrow-down home_scroll-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer_bg">
+            <div class="footer_container container grid">
+                <div class="footer_text">
+                    <h1 class="footer_title">Sifer-App</h1>
+                    <span class="footer_subtitle">"Tu mejor eleccion para el cuidado de tu moto".</span>
+                </div>
+                <ul class="footer_links">
+                    <li>
+                        <a href="/signin" class="footer_link">Iniciar Sesion</a>
+                    </li>
+                    <li>
+                        <a href="signup" class="footer_link">Registrarme</a>
+                    </li>
+
+                </ul>
+
+                <div class="footer_socials">
+
+                    <a href="" class="logo_img_footer"><img src="public/images/favicon-removebg-preview.png" alt=""></a>
+
+                </div>
+            </div>
+            <p class="footer_copy">Derechos reservados &#169; Sifer-App.</p>
+
+        </div>
+    </footer>
+
+    <!--==================== SCROLL TOP ====================-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scroll-up-icon"></i>
+    </a>
+
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/typed.js' %}"></script>
+
+    <script>
+        // typed JS //
+
+        const typed = new Typed('.multiple-text', {
+            strings: ['Administrador','Cliente', 'Usuario' ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+
+</body>
+
+</html>

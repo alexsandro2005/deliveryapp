@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login || Sifer - App </title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="{% static 'js/fontawesome.js'%}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="hero"></div>
+    <div class="container">
+        <div class="img">
+        </div>
+        <div class="login-content">
+            <form action="/signin/" method="POST" autocomplete="off">
+                
+                <h2 class="title">Iniciar Sesion</h2>
+                <div class="description">
+                    <p>Ingrese por favor sus datos.</p>
+                </div>
+                <div class="description">
+                    <p>{{ error_login }}</p>
+
+
+                </div>
+
+
+                {% csrf_token %}
+
+                <div class="inputs-container">
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Numero de Documento</h5>
+                            <input autofocus type="number" maxlength="10" required oninput="maxcelNumber(this);"
+                                minlength="6" onkeypress="return(multiplenumber(event));" name="document" class="input">
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Contraseña</h5>
+                            <input name="password" onkeypress="validarPassword(event)" type="password" autofocus
+                                onkeypress="" minlength="10" maxlength="20" oninput="maxlengthNumber(this);"
+                                class="input">
+                        </div>
+                    </div>
+                    <div class="redirecciones">
+
+                        <!-- <a href="/signup">Registrarme</a> -->
+                        <a href="/  ">Regresar</a>
+                    </div>
+
+                    <button class="btn">Iniciar Sesion</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/login.js'%}"></script>
+
+    <script>
+        function maxlengthNumber(obj) {
+
+            if (obj.value.length > obj.maxLength) {
+                obj.value = obj.value.slice(0, obj.maxLength);
+                alert("Debe ingresar solo el numeros de digitos requeridos");
+            }
+        }
+
+        function maxcelNumber(obj) {
+
+            if (obj.value.length > obj.maxLength) {
+                obj.value = obj.value.slice(0, obj.maxLength);
+                alert("Debe ingresar minimo 6 numeros y maximo 10 numeros para validar su numero de documento.");
+            }
+        }
+
+
+        function multipletext(e) {
+            key = e.keyCode || e.which;
+
+            teclado = String.fromCharCode(key).toLowerCase();
+
+            letras = "qwertyuiopasdfghjklñzxcvbnm";
+
+            especiales = "8-37-38-46-164-46";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    alert("Debe ingresar solo letras y espacios en el campo");
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+                alert("Debe ingresar solo letras y espacios en el campo");
+            }
+        }
+
+
+
+
+
+
+        function multiplenumber(e) {
+            key = e.keyCode || e.which;
+
+            teclado = String.fromCharCode(key).toLowerCase();
+
+            numeros = "1234567890";
+
+            especiales = "8-37-38-46-164-46";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    alert("Debe ingresar solo numeros en el formulario");
+                    break;
+                }
+            }
+
+            if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+                alert("Debe ingresar solo numeros en el formulario ");
+            }
+        }
+
+
+
+        function textspace(e) {
+            key = e.keyCode || e.which;
+
+            teclado = String.fromCharCode(key).toLowerCase();
+
+            letrasspace = "qwertyuiopasdfghjklñzxcvbnm ";
+
+            especiales = "8-37-38-46-164-46";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    alert("Debe ingresar solo letras y espacios en el campo asignado");
+                    break;
+                }
+            }
+
+            if (letrasspace.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+                alert("Debe ingresar solo letras y espacios en el campo asignado");
+            }
+        }
+
+
+
+        function textguions(e) {
+            key = e.keyCode || e.which;
+
+            teclado = String.fromCharCode(key).toLowerCase();
+
+            letrasguions = "qwertyuiopasdfghjklñzxcvbnm1234567890_";
+
+            especiales = "8-37-38-46-164-46";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    alert("Debe ingresar solo letras y espacios en el campo asignado");
+                    break;
+                }
+            }
+
+            if (letrasguions.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+        }
+    </script>
+
+
+    <script src="{% static 'js/formulario.js'%}">
+
+    </script>
+</body>
+
+</html>
