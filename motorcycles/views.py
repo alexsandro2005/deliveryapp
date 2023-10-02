@@ -228,12 +228,16 @@ def create_client(request):
                 'error': 'Error al momento de registrar un nuevo cliente.'
             })
 
+
 @login_required
-# metodo para la actualizacion del cliente 
 def update_client(request, cliente_documento):
+    cliente = get_object_or_404(Clientes, pk=cliente_documento)
+
     if request.method == 'GET':
-        cliente = get_object_or_404(Clientes, pk=cliente_documento)
         form = ClientesForm(instance=cliente)
+        # Agregar el atributo readonly al campo "documento"
+        form.fields['documento'].widget.attrs['readonly'] = True
+
         return render(request, 'update_client.html', {
             'cliente': cliente,
             'form': form,
@@ -246,7 +250,6 @@ def update_client(request, cliente_documento):
                 request.POST, instance=clienteActualizado)
             formClient.save()
             return redirect('/clientes')
-
         except ValueError:
             return render(request, 'update_client.html', {
                 'cliente': cliente,
@@ -302,9 +305,10 @@ def crear_moto(request):
 # creamos una funcion para actualizar los datos de la moto
 @login_required
 def update_moto(request, moto_placa):
+    moto = get_object_or_404(Motos, pk=moto_placa)
     if request.method == 'GET':
-        moto = get_object_or_404(Motos, pk=moto_placa)
         form = MotosForm(instance=moto)
+        form.fields['placa'].widget.attrs['readonly'] = True
         return render(request, 'update_moto.html', {
             'moto': moto,
             'form': form
